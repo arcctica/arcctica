@@ -17,7 +17,7 @@
 </p>
 
 <p align="center">
-  <img src="assets/console.svg" alt="A console listing my skills: languages, web, data, security, AI, tools and spoken languages" width="680">
+  <img src="assets/console.svg" alt="A console listing my technical skills: languages, web, data, security and tools" width="680">
 </p>
 
 ---

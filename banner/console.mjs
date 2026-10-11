@@ -1,4 +1,4 @@
-// A small black-and-white console that lists my skills. No dependencies.
+// A small black-and-white console that lists my technical skills. No dependencies.
 //
 //   node banner/console.mjs        # writes assets/console.svg
 //
@@ -13,12 +13,10 @@ const OUT = 'assets/console.svg';
 
 const SKILLS = [
   ['languages', ['Python', 'TypeScript', 'JavaScript', 'SQL', 'HTML/CSS']],
-  ['web', ['React', 'Next.js', 'Node.js', 'FastAPI', 'Prisma', 'MapLibre']],
+  ['web', ['React', 'Next.js', 'Node.js', 'FastAPI', 'Tailwind CSS', 'Prisma', 'MapLibre']],
   ['data', ['PostgreSQL/PostGIS', 'SQLite', 'Google Earth Engine']],
   ['security', ['OSINT', 'WHOIS/DNS', 'certificate transparency', 'auth (scrypt, TOTP, CSRF)']],
-  ['ai', ['transformers and backprop from scratch']],
   ['tools', ['Git', 'Figma', 'Unity', 'Unreal Engine', 'Arduino', 'micro:bit', 'SketchUp']],
-  ['spoken', ['Ukrainian', 'Russian', 'English', 'Japanese (beginner)']],
 ];
 
 // ---- look ---------------------------------------------------------------------------------------

@@ -37,19 +37,20 @@
       ]
     },
     {
-      "name": "Tiny GPT",
+      "name": "Knowly",
       "match": [
-        "tiny-gpt"
+        "knowly",
+        "vacuum"
       ],
-      "public": true,
       "languages": [
-        "JavaScript"
+        "TypeScript"
       ],
       "tech": [
-        "Transformer",
-        "Attention",
-        "Backprop",
-        "AdamW"
+        "Next.js",
+        "React",
+        "Tailwind CSS",
+        "Radix UI",
+        "knowledge map"
       ]
     }
   ]
