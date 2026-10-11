@@ -16,6 +16,7 @@ const SKILLS = [
   ['web', ['React', 'Next.js', 'Node.js', 'FastAPI', 'Tailwind CSS', 'Prisma', 'MapLibre']],
   ['data', ['PostgreSQL/PostGIS', 'SQLite', 'Google Earth Engine']],
   ['security', ['OSINT', 'WHOIS/DNS', 'certificate transparency', 'auth (scrypt, TOTP, CSRF)']],
+  ['science', ['Mathematics', 'Physics', 'numerical simulation']],
   ['tools', ['Git', 'LaTeX', 'c[_] coffee']],
 ];
 

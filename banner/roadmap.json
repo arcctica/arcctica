@@ -1,0 +1,132 @@
+{
+  "title": "roadmap  //  from here to AI research",
+  "destination": [
+    "AI researcher",
+    "or an AI company",
+    "of my own"
+  ],
+  "columns": [
+    "now",
+    "next 12 months",
+    "years 2-3",
+    "years 4-5"
+  ],
+  "lanes": [
+    {
+      "name": "Math",
+      "stations": [
+        {
+          "col": 0,
+          "title": "Calculus",
+          "note": "AP Calc, Calc Honors",
+          "status": "now"
+        },
+        {
+          "col": 1,
+          "title": "Linear algebra",
+          "note": "+ probability, alone",
+          "status": "planned"
+        },
+        {
+          "col": 2,
+          "title": "Optimization, stats",
+          "note": "college courses",
+          "status": "planned"
+        },
+        {
+          "col": 3,
+          "title": "Learning theory",
+          "note": "the math of models",
+          "status": "planned"
+        }
+      ]
+    },
+    {
+      "name": "Code & ML",
+      "stations": [
+        {
+          "col": 0,
+          "title": "Tiny GPT by hand",
+          "note": "28k params, backprop",
+          "status": "done"
+        },
+        {
+          "col": 1,
+          "title": "Train on real data",
+          "note": "PyTorch, a GPU run",
+          "status": "planned"
+        },
+        {
+          "col": 2,
+          "title": "Reproduce papers",
+          "note": "and evaluate honestly",
+          "status": "planned"
+        },
+        {
+          "col": 3,
+          "title": "Research code",
+          "note": "experiments at scale",
+          "status": "planned"
+        }
+      ]
+    },
+    {
+      "name": "Research",
+      "stations": [
+        {
+          "col": 0,
+          "title": "Read papers",
+          "note": "one a week, with notes",
+          "status": "now"
+        },
+        {
+          "col": 1,
+          "title": "A lab or program",
+          "note": "apply, find a mentor",
+          "status": "planned"
+        },
+        {
+          "col": 2,
+          "title": "First real project",
+          "note": "undergrad lab, preprint",
+          "status": "planned"
+        },
+        {
+          "col": 3,
+          "title": "First-author paper",
+          "note": "then PhD or research job",
+          "status": "planned"
+        }
+      ]
+    },
+    {
+      "name": "Build",
+      "stations": [
+        {
+          "col": 0,
+          "title": "3 prototypes",
+          "note": "Unchained and 2 more",
+          "status": "done"
+        },
+        {
+          "col": 1,
+          "title": "Publish the code",
+          "note": "Knowly part II",
+          "status": "now"
+        },
+        {
+          "col": 2,
+          "title": "Real users",
+          "note": "ship one, learn from it",
+          "status": "planned"
+        },
+        {
+          "col": 3,
+          "title": "Decide",
+          "note": "PhD, or a company",
+          "status": "planned"
+        }
+      ]
+    }
+  ]
+}

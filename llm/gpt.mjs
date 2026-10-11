@@ -318,13 +318,14 @@ async function main() {
       return s / n;
     };
     // keep the best held-out loss among checkpoints that already know the quote by heart
-    let best = { val: Infinity, P: null, step: 0, knows: false }, t0 = Date.now(), lastTrain = 0;
+    let best = { val: Infinity, P: null, step: 0, knows: false }, t0 = Date.now(), lastTrain = 0, trainAcc = 0, trainN = 0;
+    const history = []; // [step, average training loss since the last check, held-out loss] for the loss curve
     const lr0 = 4e-3, b1 = 0.9, b2 = 0.99, WD = 0.1;
     for (let step = 1; step <= steps; step++) {
       for (const k of Object.keys(G)) G[k].fill(0);
       let tl = 0;
       for (let b = 0; b < batch; b++) { const [x, y] = window(train); tl += run(P, x, { targets: y, G, lossScale: 1 / batch }).loss / batch; }
-      lastTrain = tl;
+      lastTrain = tl; trainAcc += tl; trainN++;
       const warm = Math.min(1, step / 60), cos = 0.5 * (1 + Math.cos((Math.PI * step) / steps));
       const lr = lr0 * warm * (0.1 + 0.9 * cos);
       for (const k of Object.keys(P)) {                           // Adam
@@ -337,6 +338,7 @@ async function main() {
       }
       if (step % 100 === 0 || step === steps) {
         const v = evalLoss();
+        history.push([step, Number((trainAcc / trainN).toFixed(3)), Number(v.toFixed(3))]); trainAcc = 0; trainN = 0;
         const knows = greedy(P, vocab, CFG, '\n\n', quote.length) === quote;
         if ((knows && !best.knows) || (knows === best.knows && v < best.val)) best = { val: v, step, knows, P: Object.fromEntries(Object.entries(P).map(([k, a]) => [k, Float64Array.from(a)])) };
         console.log(`step ${String(step).padStart(5)}  train ${tl.toFixed(3)}  val ${v.toFixed(3)}  quote ${knows ? 'ok' : '--'}  lr ${lr.toExponential(1)}  ${((Date.now() - t0) / 1000).toFixed(0)}s`);
@@ -344,7 +346,7 @@ async function main() {
     }
     saveModel(here('./weights.json'), best.P, vocab, {
       params: countParams(V), steps, bestStep: best.step, valLoss: Number(best.val.toFixed(3)),
-      trainLoss: Number(lastTrain.toFixed(3)), randomLoss: Number(Math.log(V).toFixed(3)), corpusChars: data.length, quoteRepeats,
+      trainLoss: Number(lastTrain.toFixed(3)), randomLoss: Number(Math.log(V).toFixed(3)), corpusChars: data.length, quoteRepeats, history,
     });
     console.log(`saved llm/weights.json (best val loss ${best.val.toFixed(3)} at step ${best.step}, quote seen ${quoteRepeats}x)`);
     const said = greedy(best.P, vocab, CFG, '\n\n', quote.length);

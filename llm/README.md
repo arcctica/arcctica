@@ -7,7 +7,7 @@ node llm/gpt.mjs check          # hand-written gradients vs. numerical ones (sho
 node llm/gpt.mjs train 8000     # train on llm/corpus/*.txt + llm/quote.txt  ->  llm/weights.json
 node llm/gpt.mjs recite         # does it know the quote by heart?
 node llm/gpt.mjs sample "a black hole "   # generate text
-node banner/llm.mjs             # redraw assets/llm.svg: the model typing the quote
+node banner/model.mjs           # redraw assets/model.svg: the model card (architecture, attention, loss, confidence)
 ```
 
 ## What's in [`gpt.mjs`](gpt.mjs)
@@ -33,7 +33,7 @@ node banner/llm.mjs             # redraw assets/llm.svg: the model typing the qu
 
 ## The quote
 
-`llm/quote.txt` holds a sentence the model is meant to learn **by heart**. It is mixed into the training text after every paragraph, and the training script keeps the checkpoint with the best held-out loss *among those that already recite it exactly*. `banner/llm.mjs` then lets the model type it one character at a time and refuses to draw anything if what comes out is not exactly the quote.
+`llm/quote.txt` holds a sentence the model is meant to learn **by heart**. It is mixed into the training text after every paragraph, and the training script keeps the checkpoint with the best held-out loss *among those that already recite it exactly*. `banner/model.mjs` then draws, for the quote and for a sentence the model never trained on, how sure it was of every right next character.
 
 This is memorisation, and it is a good thing to look at: it shows that a small model can reproduce what it has seen many times without understanding it. The held-out loss above, on text it has never seen, is the honest measure of what it learned beyond that.
 

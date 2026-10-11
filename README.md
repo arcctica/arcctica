@@ -47,36 +47,28 @@
 
 ---
 
-## 🧠 Learning how LLMs work by building one
+## 🧭 Roadmap
 
 <p align="center">
-  <img src="assets/llm.svg" alt="Animation: a tiny language model types a sentence one character at a time, showing its attention arcs over the last 30 characters and its five likeliest next characters. The sentence: A comet flying into the unknown: I burn up from my own speed. But if I didn't burn, what would be the point of flying at all?" width="100%">
+  <img src="assets/roadmap.svg" alt="Roadmap from here to AI research, in four lanes: math (calculus now, then linear algebra and probability, optimization and statistics, learning theory); code and ML (a tiny GPT written by hand is done, then training on real data, reproducing papers, research code); research (reading papers now, then a lab or program, a first real project, a first-author paper); building (three prototypes done, publishing the code now, then real users, then deciding between a PhD and a company). The destination is AI researcher, or an AI company of my own." width="100%">
+</p>
+
+### Milestone 1 — learning how LLMs work by building one
+
+<p align="center">
+  <img src="assets/model.svg" alt="Model card of a tiny GPT written from scratch: 28,160 parameters, 2 layers, 4 attention heads. It shows the architecture, the real attention weights of the last layer, the training and held-out loss curves, and how sure the model was of the right next character: 98 percent on a quote it saw 75 times, 34 percent on a sentence it never trained on." width="100%">
 </p>
 
 <p align="center">
-  <sub>A real, tiny GPT — 28k parameters, 2 layers, 4 heads — written from scratch in dependency-free JavaScript, with backpropagation done by hand and checked against numerical gradients.
-  Every frame is a real forward pass: the arcs are its attention weights, the bars are its probabilities for the next character.
-  It types a sentence of mine from memory: it has seen that line 75 times in training, which is exactly what small models do. On text it has never seen it mostly babbles.
-  The point is the mechanism big models use. <a href="llm/README.md">Code and numbers.</a></sub>
-</p>
-
----
-
-## 🕸️ Map of my work
-
-<p align="center">
-  <img src="assets/repo-graph.svg" alt="Graph connecting me to my projects, the languages they use and the tools around them" width="100%">
-</p>
-
-<p align="center">
-  <sub>Rebuilt every week by <a href=".github/workflows/update-graph.yml">a GitHub Action</a> from my public repos — languages, topics, stars.
-  Dashed means "not public yet". <a href="banner/repo-graph.mjs">Source.</a></sub>
+  <sub>A tiny GPT written from scratch in dependency-free JavaScript, with backpropagation done by hand and checked against numerical gradients. Everything in the picture is real data from the trained model.
+  The strips at the bottom are the point: it is 98% sure of every character of a quote it has seen 75 times, and 34% sure on a sentence it has never seen. That gap is memorising versus learning.
+  <a href="llm/README.md">Code and numbers.</a></sub>
 </p>
 
 ---
 
-## 🌍 A bit more
+## 📈 Activity
 
-- 🗣️ Speak Ukrainian, Russian and English; learning Japanese
-- 🏊 Swimming and running when I'm away from the keyboard
-- 🌱 Always happy to hear feedback on what I'm building
+<p align="center">
+  <img src="assets/activity.svg" alt="My GitHub activity over the last year as a spiral of days around a black hole, with streaks and contributions per month" width="100%">
+</p>

@@ -1,0 +1,42 @@
+name: Update activity
+
+# Redraws assets/activity.svg (the spiral of my last year on GitHub) from the public contribution
+# calendar in the GitHub GraphQL API. The picture carries a "week of <Monday>" stamp, so there is
+# at least a small commit every week; that also keeps GitHub from switching scheduled workflows
+# off after 60 days without repository activity.
+
+on:
+  schedule:
+    - cron: '0 6 * * *' # every day, 06:00 UTC
+  workflow_dispatch: # "Run workflow" button in the Actions tab
+  push:
+    branches: [main]
+    paths:
+      - banner/activity.mjs
+
+permissions:
+  contents: write
+
+jobs:
+  activity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - name: Redraw the spiral
+        run: node banner/activity.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Commit if it changed
+        run: |
+          if git diff --quiet -- assets/activity.svg; then
+            echo "activity unchanged"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/activity.svg
+          git commit -m "chore: refresh activity"
+          git push
