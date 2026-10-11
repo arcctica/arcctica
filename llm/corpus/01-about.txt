@@ -1,0 +1,41 @@
+arctica is a high school developer who builds software in cybersecurity and open data. the goal is simple: understand how things work by building them from scratch, and then make them useful for other people.
+
+a black hole is a region of space where gravity is so strong that nothing can escape, not even light. the edge of that region is called the event horizon. light that passes close to a black hole does not travel in a straight line. it bends around the hole, and that bending is called gravitational lensing.
+
+to draw a black hole you do not need a camera. you follow light rays backwards from every pixel through curved space. each ray is a solution of one equation, and the equation says how much the path bends when it passes a mass. rays that fall into the hole make the black shadow. rays that circle around it make the bright ring. rays that cross the accretion disk pick up light from hot gas, and the gas on the side moving toward you looks brighter.
+
+the black hole bends light, and the picture on top of this page is made only from that rule. every pixel is a light ray, and every ray is integrated step by step through the curved space around the hole.
+
+unchained is a platform for open source intelligence and attack surface reconnaissance. you enter a domain or a discord id, and the system detects what it is and asks every matching source in parallel. each source is a plugin that runs as its own process with a time limit and an output limit, so one slow or broken source can never freeze the rest.
+
+the sources so far are whois and dns records, certificate transparency logs from crt.sh, and discord. the results become a graph of relationships. the layout of that graph is written by hand, with forces that push nodes apart and springs that pull connected nodes together, so the picture settles into a shape that is easy to read.
+
+accounts are protected with scrypt password hashing, two factor authentication with one time codes, and tokens against cross site request forgery. security is not a feature to add at the end. it is a habit that has to be in the first line of code.
+
+the reforestation planning map helps nonprofits and volunteers decide where to plant trees after wildfires and hurricanes. it reads public federal and satellite data, splits the land into cells of thirty meters, and gives every cell a score from six factors: burn severity, canopy loss, time since the event, distance to the nearest seed trees, slope, and distance to roads.
+
+cells with a high score are grouped into planting zones, and the zones are shown on a map with filters and a breakdown of every score. so far the map holds hundreds of zones in a national forest in california and a few small zones after a hurricane in south carolina. the weights of the six factors are heuristics. they have not been validated yet, and saying so is part of doing the work honestly.
+
+a language model is a program that predicts the next piece of text. it reads the text so far, and it outputs a probability for every possible next token. to write a sentence, you pick one token, add it to the text, and ask again. that is the whole loop, repeated many times.
+
+a token is a small piece of text. in this tiny model a token is a single character, so there are only a few dozen of them. large models use pieces of words instead, but the idea is the same. every token is turned into a list of numbers called an embedding, and the model learns what those numbers should be.
+
+the key idea of a transformer is attention. when the model reads a character, it looks back at all the earlier characters and decides which of them matter right now. each earlier character gets a weight, the weights add up to one, and the model mixes the information of the earlier characters using those weights. a model can have many attention heads, and each head learns to look for something different.
+
+inside every layer, attention is followed by a small neural network that works on each position by itself. around both parts there are residual connections, which let information skip ahead, and a normalization that keeps the numbers from growing too large. stack a few layers, and you have a transformer.
+
+training means making the predictions less wrong. the model reads a piece of text, predicts every next character, and the loss measures how surprised it was by the truth. then backpropagation walks backwards through the network and finds how each number should change to reduce that surprise, and an optimizer takes a small step in that direction. repeat this thousands of times, and the model slowly learns the patterns of the text.
+
+the model on this page was written without any library. the forward pass, the backward pass and the optimizer are about three hundred lines of plain javascript. writing the gradients by hand is slow, but after that nothing about a neural network feels like magic anymore.
+
+a model this small has only a few thousand parameters and has read only a few pages of text, so it mostly remembers what it has seen. it can spell, it knows which words go together, and it can continue a sentence in the same style. it cannot reason, and it does not know what a black hole is. but the mechanism is exactly the one that large language models use, only much smaller.
+
+research starts with a question that nobody has answered yet. a good question is small enough to test and big enough to matter. how does a model decide which earlier word to look at? why does a model sometimes say something false with complete confidence? how can a model be made to say that it does not know?
+
+a startup starts with a problem that people already have. the first version is small, and it is built fast, and then it is shown to real people, who find what is wrong with it. the second version is better. building something nobody asked for is easy. building something people come back to is the hard part.
+
+the plan is to keep building things from scratch, to learn the mathematics behind them, and to share the work openly. physics explains how the universe behaves, engineering turns that knowledge into machines, and computer science makes those machines think. the goal is to work where all three meet, on artificial intelligence that is honest about what it knows.
+
+every project here starts the same way. first an idea, then a rough prototype that works, then the parts that are wrong get fixed one by one. the weights that are guesses are marked as guesses. the numbers that were measured are marked as measured. the code is written so that a stranger can read it and understand it.
+
+the sky is full of rays that bend around heavy objects, and the forest is full of cells that wait for someone to plant a tree. a graph is a way to see how things are connected, and a model is a way to guess what comes next. learning to build all of these is the same kind of work, and it is work worth doing.

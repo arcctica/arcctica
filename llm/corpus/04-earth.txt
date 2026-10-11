@@ -1,0 +1,27 @@
+a forest fire does not burn everything in the same way. in some places it only scorches the ground, and in others it kills every tree. the word severity describes how much damage the fire did. high severity fires leave bare ground and dead trunks, and the forest in those places may need years or decades before it can grow back, if it grows back at all.
+
+satellites can measure how bad a fire was without anyone walking into the burned area. healthy leaves reflect a lot of near infrared light, and burned ground reflects very little of it. a satellite takes a picture before the fire and another one after it, and the difference between the two pictures shows the scar. the bigger the drop, the higher the severity.
+
+a satellite picture is made of small squares called pixels, and each pixel covers a piece of ground. the landsat satellites see squares thirty meters wide, which is about the size of a baseball infield. the sentinel satellites of europe see squares ten meters wide in some bands. a smaller square shows more detail, but it also means more data, and the satellites have to pass over the same place again and again to see it change.
+
+a geographic information system stores places as numbers. a raster is a grid of values, such as the brightness of every pixel or the height of the ground at every point. a vector is a list of shapes, such as a road drawn as a line or a lake drawn as a polygon. most map questions mix the two, for example, which pixels of this raster fall inside that polygon.
+
+a spatial database can answer questions about places directly. you can ask which zones are within two kilometers of a road, which cells lie on a slope steeper than thirty degrees, or which burned areas touch a river. the answer comes in a fraction of a second even when the table has millions of rows, because the database keeps a special index that sorts shapes by where they are.
+
+a digital elevation model is a raster where each value is a height. from the heights you can compute the slope, which is how fast the ground rises, and the direction the slope faces. slope matters for planting, because young trees on steep ground are easily washed away by rain, and because crews cannot work safely on very steep hills.
+
+trees do not plant themselves everywhere. many conifers drop seeds that travel only a short way from the mother tree, so a burned area that lies far from any surviving tree may stay empty for a very long time. the distance to the nearest living seed source is one of the most important numbers when you decide where people should plant and where nature will do the job alone.
+
+people also need to reach the place. a planting crew carries thousands of seedlings, so a site that is far from any road costs much more to plant. the distance to the nearest road is not about the trees at all, but a plan that ignores it can look perfect on a map and be impossible in the field.
+
+time matters as well. in the first years after a fire the soil is still open, and young seedlings can take hold. later, shrubs and grass take over the ground and make it harder for trees to start. so a place that burned recently is often a better choice than a place that burned long ago, other things being equal.
+
+a hurricane damages a forest in a different way. the wind snaps trunks and throws trees to the ground, and the fallen wood makes new fires more likely. the loss of the canopy, which is the roof made of leaves, can be measured from space as well. a map of canopy loss shows where the storm hit hardest, and it can be combined with the other factors in the same way as a fire map.
+
+to rank thousands of places, you have to turn many different measurements into one comparable number. the usual way is to scale each factor to a range between zero and one, so that zero means the worst and one means the best for planting. then you multiply every factor by a weight, which says how much it matters, and add them up. the result is a score, and the cells with the highest scores come first.
+
+the weights are the hardest part. nobody knows the perfect numbers, so they start as informed guesses. the honest way to work with guesses is to say so, to show how the ranking changes when a weight changes, and to compare the result with what experienced foresters would choose. a ranking that is presented as exact when it is only a guess can do real harm.
+
+single cells are too small to plant one at a time. so the cells with a good score that touch each other are joined into a zone. a zone has a size in acres, an average score, and a list of reasons. people who plan the work can look at the zones, read why each one was chosen, and decide whether they agree. a tool like this should help a person to decide, and not decide for them.
+
+all of the data behind such a map is public. the forest service publishes the boundaries of the forests and the history of fires, space agencies publish the satellite images for free, and surveys publish the height of the ground. this means that a student with a laptop can build something that is useful to a charity. it also means that the work can be checked by anyone, and that is exactly how science is supposed to work.

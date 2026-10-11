@@ -1,0 +1,29 @@
+the internet is built from names and numbers. a computer finds a website by asking the domain name system, which turns a name like a word with a dot and an ending into a number called an address. every domain has records that say where its web server is, where its mail goes, and which other names belong to it. anyone can ask for these records, and that is why they are a good place to start when you want to learn about a target.
+
+when a person registers a domain, the registrar keeps a record of who owns it. the record is called whois data. in the past it often contained a name, a phone number and an address, and today most of it is hidden behind privacy services. what stays public is still useful: the date the domain was created, the company that runs its name servers, and sometimes the country.
+
+a website that uses a secure connection proves who it is with a certificate. a certificate authority signs it, and the browser checks the signature. since the signing authorities have to write every certificate they issue into public logs, anyone can search those logs. this system is called certificate transparency, and a search in it often shows names of sites that the owner never announced, such as a test server or an old admin panel.
+
+the attack surface of an organization is everything an outsider can reach: web servers, mail servers, login pages, old test machines, forgotten files. the larger the surface, the more places an attacker can try. defenders map their own attack surface for the same reason attackers do. you cannot protect something that you do not know exists, so the first job is to make a complete list.
+
+open source intelligence means learning things from public sources only. it does not mean breaking into anything. a good investigator writes down where each fact came from, how sure they are about it, and when they found it. two sources that agree are worth more than one, and a fact that nobody can check should never be treated as a fact.
+
+there are rules that come before any technique. an investigator needs permission to test systems that belong to someone else, and the permission has to say what is allowed and what is not. private people are not targets, and public data about a person can still hurt them when it is collected and put together. a tool that helps defenders can also help attackers, so the people who build such tools carry part of the responsibility.
+
+a password should never be stored in plain text. the safe way is to store only a hash, which is the result of a one way function. you can turn a password into a hash, but you cannot turn the hash back into the password. when a user logs in, the server hashes what they typed and compares the two hashes. a thief who steals the database gets hashes and not passwords.
+
+a plain hash is still too weak, because attackers can try billions of guesses per second on a fast graphics card. to stop that, a good system adds a random salt to every password, so that two identical passwords get different hashes. it also uses a hash function that is slow and hungry for memory on purpose, such as scrypt. the slowness costs a normal user a fraction of a second and costs an attacker years.
+
+a password alone is a single point of failure, so important accounts also ask for a second factor. a common choice is a code that changes every thirty seconds. the server and the phone share a secret key, and both of them combine the key with the current time to compute the same short number. a thief who knows the password still cannot log in without the phone, and the code is useless a minute later.
+
+when you are logged in, your browser sends your cookie to the website with every request, even a request that was started by a different page. an attacker can use that. a hidden form on a bad page can send a request to your bank, and the browser will attach your cookie. the defense is a secret token that is placed in every real form and checked on the server. the attacker cannot know the token, so the forged request fails.
+
+never trust anything that comes from the user. a name field can contain a script, a number field can contain a sentence, a file name can contain slashes that lead out of the folder. the safe habit is to check every input against what is allowed, to escape everything that is shown on a page, and to give every part of the program only the smallest set of rights it needs to do its work.
+
+one slow or broken part should not bring down the whole system. a good design runs each risky task in its own process with a limit on time and a limit on output. when the task takes too long or prints too much, the system stops it and goes on. the same idea is why a plugin that talks to a faraway server should never be able to freeze the page that the user is looking at.
+
+secrets do not belong in code. a password or a key that is written into a file and uploaded to a public repository can be found by automatic scanners in minutes, even if it is deleted later, because the history keeps it. the right place for a secret is an environment variable or a secret store, and a key that has leaked must be replaced at once, not just hidden.
+
+security is a process and not a product. there are always more attackers than defenders, and the attackers only need to find one mistake. so a good system is built in layers, so that when one layer fails, the next layer still stands. it writes logs, so that someone can see what happened. and it is tested by people who try to break it, before the real attackers do.
+
+when you find a weakness in someone else's system, the right thing to do is to tell the owner privately and give them time to fix it. this is called responsible disclosure. you do not publish the details before the fix, you do not take any data, and you do not use the weakness to prove a point. many organizations now publish an address for reports, and some of them thank the people who report problems.
