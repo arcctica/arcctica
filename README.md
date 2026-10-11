@@ -16,6 +16,10 @@
   <a href="banner/blackhole.mjs">Source, ~400 lines of dependency-free JS.</a></sub>
 </p>
 
+<p align="center">
+  <img src="assets/console.svg" alt="A console listing my skills: languages, web, data, security, AI, tools and spoken languages" width="680">
+</p>
+
 ---
 
 ## 🔭 What I'm building
@@ -52,14 +56,6 @@ A map for nonprofits and volunteers that finds and ranks U.S. Forest Service lan
 
 <p align="center">
   <img src="assets/reforestation.svg" alt="Pipeline diagram: six factors (burn severity, canopy loss, time since event, seed-source distance, slope, roads) score every 30 m cell; cells are grouped into planting zones that are served to a FastAPI and MapLibre map" width="100%">
-</p>
-
----
-
-## 🖥️ Boot sequence
-
-<p align="center">
-  <img src="assets/loading.svg" alt="Console boot screen: Python 80%, TypeScript/JS 75%, React/Next.js 70%, FastAPI 65%, SQL/PostGIS 60%, Security/OSINT 60%, Geospatial data 55%, Japanese 15%" width="100%">
 </p>
 
 ---
