@@ -1,0 +1,42 @@
+name: Update profile graph
+
+# Rebuilds assets/repo-graph.svg from the public GitHub API (repos, languages, topics, stars).
+# The file carries a "synced <date>" stamp, so there is a small commit every week; that also
+# keeps GitHub from switching scheduled workflows off after 60 days without repository activity.
+
+on:
+  schedule:
+    - cron: '0 6 * * 1' # Mondays, 06:00 UTC
+  workflow_dispatch: # "Run workflow" button in the Actions tab
+  push:
+    branches: [main]
+    paths:
+      - banner/repo-graph.mjs
+      - banner/graph.config.json
+
+permissions:
+  contents: write
+
+jobs:
+  graph:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Rebuild the graph
+        run: node banner/repo-graph.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Commit if it changed
+        run: |
+          if git diff --quiet -- assets/repo-graph.svg; then
+            echo "graph unchanged"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/repo-graph.svg
+          git commit -m "chore: refresh profile graph"
+          git push
