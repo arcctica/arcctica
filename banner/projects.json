@@ -1,0 +1,56 @@
+[
+  {
+    "file": "unchained",
+    "name": "Unchained",
+    "status": "early prototype · ~25k lines · not public yet",
+    "tagline": "OSINT & attack-surface reconnaissance",
+    "facts": [
+      "Enter a domain or a Discord ID: it detects the type and queries every matching source in parallel",
+      "Every source is a plugin in its own process, with a timeout and an output limit",
+      "Live: WHOIS/DNS, crt.sh, Discord. Hand-written graph layout; scrypt, TOTP 2FA, CSRF protection"
+    ],
+    "stack": [
+      "TypeScript",
+      "Next.js",
+      "React",
+      "Prisma",
+      "SQLite"
+    ]
+  },
+  {
+    "file": "reforestation",
+    "name": "Reforestation Planning Map",
+    "status": "working prototype · not public yet",
+    "tagline": "where to plant trees after fires and hurricanes",
+    "facts": [
+      "Finds and ranks U.S. Forest Service land that needs replanting, for nonprofits and volunteers",
+      "Scores 30 m cells on six factors from public federal and satellite data, then groups them into zones",
+      "851 zones (~72,000 acres) in Plumas NF, CA, plus 6 after Hurricane Helene. Weights: untested heuristics"
+    ],
+    "stack": [
+      "Python",
+      "FastAPI",
+      "PostGIS",
+      "Earth Engine",
+      "React",
+      "MapLibre"
+    ]
+  },
+  {
+    "file": "knowly",
+    "name": "Knowly",
+    "status": "in development · not public yet",
+    "tagline": "a personal map of everything I want to learn",
+    "facts": [
+      "A dark tree of knowledge: a node lights up when you actually do something with it",
+      "Local-first: your data stays on your own machine"
+    ],
+    "stack": [
+      "TypeScript",
+      "Next.js",
+      "React",
+      "Tailwind CSS",
+      "Radix UI"
+    ]
+  }
+]

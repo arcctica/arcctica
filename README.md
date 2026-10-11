@@ -24,38 +24,25 @@
 
 ## 🔭 What I'm building
 
-### Unchained — OSINT & attack-surface reconnaissance
-Enter a domain or a Discord ID. Unchained detects what it is and queries every matching source in parallel.
+<p align="center">
+  <img src="assets/project-unchained.svg" alt="Unchained: OSINT and attack-surface reconnaissance. Early prototype, not public yet. TypeScript, Next.js, React, Prisma, SQLite." width="100%">
+</p>
 
-- **Plugin architecture** — every source runs as its own Node process with a timeout and an output limit
-- **Live sources** — WHOIS/DNS, Certificate Transparency (crt.sh), Discord
-- **Relationship graph** — interactive, with a custom layout (no graph library)
-- **Cases & accounts** — scrypt password hashing, TOTP two-factor auth, CSRF protection
-- Early-stage prototype, ~25k lines. Not publicly launched yet.
+<p align="center">
+  <img src="assets/project-reforestation.svg" alt="Reforestation Planning Map: where to plant trees after fires and hurricanes. Working prototype, not public yet. Python, FastAPI, PostGIS, Earth Engine, React, MapLibre." width="100%">
+</p>
 
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white)
-![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat&logo=nextdotjs&logoColor=white)
-![React](https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB)
-![Prisma](https://img.shields.io/badge/Prisma-2D3748?style=flat&logo=prisma&logoColor=white)
-![SQLite](https://img.shields.io/badge/SQLite-003B57?style=flat&logo=sqlite&logoColor=white)
-
-### Reforestation Planning Map
-A map for nonprofits and volunteers that finds and ranks U.S. Forest Service land needing replanting after wildfires and hurricanes, using public federal and satellite data.
-
-- **Pipeline** — Google Earth Engine + PostGIS score 30 m cells on six factors (burn severity, canopy loss, time since event, seed-source distance, slope, roads), then group them into planting zones
-- **App** — FastAPI backend, React + MapLibre frontend with filters and score breakdowns
-- **So far** — 851 zones (~72,000 acres) in Plumas National Forest, CA, plus 6 small zones from Hurricane Helene in Sumter National Forest, SC
-- Working prototype; the scoring weights are heuristics I haven't validated yet.
-
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
-![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat&logo=fastapi&logoColor=white)
-![PostGIS](https://img.shields.io/badge/PostGIS-336791?style=flat&logo=postgresql&logoColor=white)
-![React](https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB)
-![MapLibre](https://img.shields.io/badge/MapLibre-396CB2?style=flat&logo=maplibre&logoColor=white)
-![Google Earth Engine](https://img.shields.io/badge/Earth_Engine-4285F4?style=flat&logo=googleearth&logoColor=white)
+<details>
+<summary>How the Reforestation map scores a cell</summary>
 
 <p align="center">
   <img src="assets/reforestation.svg" alt="Pipeline diagram: six factors (burn severity, canopy loss, time since event, seed-source distance, slope, roads) score every 30 m cell; cells are grouped into planting zones that are served to a FastAPI and MapLibre map" width="100%">
+</p>
+
+</details>
+
+<p align="center">
+  <img src="assets/project-knowly.svg" alt="Knowly: a personal map of everything I want to learn. In development, not public yet. TypeScript, Next.js, React, Tailwind CSS, Radix UI." width="100%">
 </p>
 
 ---

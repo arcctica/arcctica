@@ -22,7 +22,7 @@ const NOTE = 'scoring weights are heuristics, not yet validated';
 const W = 900, H = 440;
 const FONT = "'JetBrains Mono','Cascadia Mono','Fira Code',Consolas,Menlo,'Courier New',monospace";
 const FS = 13, CW = 7.8;
-const RED = '#ff3b3b', LIGHT = '#ff7a7a', DIM = '#7a1c1f', FAINT = '#3a0d10', BG = '#0a0305', FRAME = '#5c1418';
+const RED = '#f0f0f0', LIGHT = '#b8b8b8', DIM = '#7a7a7a', FAINT = '#2c2c2c', BG = '#0d0d0d', FRAME = '#30363d';
 const X_IN = 232, X_CELL = 440, X_ZONE = 640, X_MAP = 810;
 
 const f = (n) => Number(n.toFixed(2));
@@ -76,9 +76,9 @@ const pulse = (r, at) => `<animate attributeName="r" values="${r};${f(r * 1.28)}
 nodes += reveal(inY.map((y, i) => `<circle cx="${X_IN}" cy="${y}" r="6" fill="${BG}" stroke="${RED}" stroke-width="1.8">${pulse(6, T[0] + 1 + i * 0.2)}</circle>`).join(''), T[0]);
 labels += reveal(FACTORS.map((t, i) => text(t, X_IN - 16, inY[i] + 4.5, { anchor: 'end' })).join(''), T[0]);
 nodes += reveal(cellY.map((y, i) => `<circle cx="${X_CELL}" cy="${y}" r="4.6" fill="${RED}" opacity="0.9">${pulse(4.6, T[1] + 1 + i * 0.15)}</circle>`).join(''), T[1]);
-nodes += reveal(zoneY.map((y) => `<circle cx="${X_ZONE}" cy="${y}" r="11" fill="#2a0a0c" stroke="${RED}" stroke-width="1.8"/><circle cx="${X_ZONE}" cy="${y}" r="4" fill="${RED}"/>`).join(''), T[2]);
+nodes += reveal(zoneY.map((y) => `<circle cx="${X_ZONE}" cy="${y}" r="11" fill="#1c1c1c" stroke="${RED}" stroke-width="1.8"/><circle cx="${X_ZONE}" cy="${y}" r="4" fill="${RED}"/>`).join(''), T[2]);
 nodes += reveal(
-  `<rect x="${X_MAP - 22}" y="${mapY - 30}" width="44" height="60" rx="5" fill="#2a0a0c" stroke="${RED}" stroke-width="1.8"/>` +
+  `<rect x="${X_MAP - 22}" y="${mapY - 30}" width="44" height="60" rx="5" fill="#1c1c1c" stroke="${RED}" stroke-width="1.8"/>` +
   `<path d="M${X_MAP - 22} ${mapY - 8}H${X_MAP + 22}M${X_MAP - 22} ${mapY + 12}H${X_MAP + 22}M${X_MAP - 4} ${mapY - 30}V${mapY + 30}" stroke="${DIM}" stroke-width="1"/>` +
   `<circle cx="${X_MAP + 9}" cy="${mapY - 17}" r="4" fill="${RED}"/>`, T[3]);
 
@@ -99,21 +99,14 @@ const foot = reveal(
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-labelledby="t d">
 <title id="t">Reforestation Planning Map pipeline</title>
 <desc id="d">Six factors (${FACTORS.join(', ')}) feed a score for every 30 m cell; cells are grouped into planting zones that are served to a map. ${RESULT}. ${NOTE}.</desc>
-<defs>
-  <pattern id="scan" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="4" height="1" fill="#000" opacity="0.28"/></pattern>
-  <radialGradient id="vig" cx="50%" cy="45%" r="75%"><stop offset="55%" stop-color="#000" stop-opacity="0"/><stop offset="100%" stop-color="#000" stop-opacity="0.55"/></radialGradient>
-  <filter id="glow" x="-5%" y="-10%" width="110%" height="120%"><feGaussianBlur stdDeviation="1.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-</defs>
 <rect width="${W}" height="${H}" rx="10" fill="${BG}"/>
 <rect x="0.5" y="0.5" width="${W - 1}" height="${H - 1}" rx="10" fill="none" stroke="${FRAME}"/>
 <g font-family="${FONT}" font-size="${FS}">
   ${text('reforestation.pipeline  //  how a cell becomes a planting zone', 30, 26, { fill: DIM })}
-  <circle cx="${W - 30}" cy="22" r="4" fill="${DIM}"/><circle cx="${W - 48}" cy="22" r="4" fill="${DIM}"/><circle cx="${W - 66}" cy="22" r="4" fill="${DIM}"/>
+  <circle cx="${W - 30}" cy="22" r="4" fill="#3a3a3a"/><circle cx="${W - 48}" cy="22" r="4" fill="#3a3a3a"/><circle cx="${W - 66}" cy="22" r="4" fill="#3a3a3a"/>
   <line x1="0" y1="38" x2="${W}" y2="38" stroke="${FRAME}"/>
-  <g filter="url(#glow)">${faint}${active}${nodes}${heads}${labels}${foot}</g>
+  <g>${faint}${active}${nodes}${heads}${labels}${foot}</g>
 </g>
-<rect width="${W}" height="${H}" rx="10" fill="url(#scan)" pointer-events="none"/>
-<rect width="${W}" height="${H}" rx="10" fill="url(#vig)" pointer-events="none"/>
 </svg>
 `;
 
