@@ -1,0 +1,2 @@
+# TDLib bundles its own SQLite (tdsqlite3*); its one-time allocations are not ours.
+leak:libtdjson.so
